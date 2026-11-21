@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDAXIS – Hospital Management System | Admin Portal</title>
+    
+    <!-- Design System Stylesheet -->
+    <link rel="stylesheet" href="css/medaxis.css">
+</head>
+<body>
+    <div class="medaxis-app">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-symbol">+</div>
+                <div class="brand-text">
+                    <h1>MEDAXIS</h1>
+                    <div class="brand-tagline">Admin Portal</div>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <div class="menu-section-label">Operations</div>
+                <a class="menu-link active" data-view="view-dashboard">
+                    <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                    Dashboard
+                </a>
+
+                <div class="menu-section-label">Patient Services</div>
+                <a class="menu-link" data-view="view-register-patient">
+                    <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>
+                    Register New Patient
+                </a>
+                <a class="menu-link" data-view="view-patient-details">
+                    <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    Patient Details
+                </a>
+
+                <div class="menu-section-label">Clinical Care</div>
+                <a class="menu-link" data-view="view-doctor-management">
+                    <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                    Doctor Management
+                </a>
+                <a class="menu-link" data-view="view-appointments">
+                    <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    Appointment Booking
+                </a>
+
+                <div class="menu-section-label">Inventory & Finance</div>
+                <a class="menu-link" data-view="view-pharmacy">
+                    <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                    Pharmacy Management
+                </a>
+                <a class="menu-link" data-view="view-billing">
+                    <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM10 8.5a.5.5 0 11-1 0 .5.5 0 011 0zm5 5a.5.5 0 11-1 0 .5.5 0 011 0z"/></svg>
+                    Billing & Payments
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="admin-badge-card">
+                    <div class="admin-avatar">AD</div>
+                    <div class="admin-info">
+                        <div class="admin-name">Hospital Administrator</div>
+                        <div class="admin-role">Super Admin</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Workspace Area -->
+        <div class="main-area">
+            <!-- Topbar Header -->
+            <header class="topbar">
+                <div class="topbar-title">
+                    <h2>MEDAXIS Healthcare System</h2>
+                    <p style="font-size:0.75rem; color:#64748B;">Simplifying Hospital Operations. Connecting Better Care.</p>
+                </div>
+
+                <div class="topbar-actions">
+                    <div class="search-box">
+                        <svg class="menu-icon search-icon-pos" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                        <input type="text" id="globalSearchInput" class="search-input" placeholder="Search patient or doctor...">
+                    </div>
+
+                    <div class="notification-pill" title="System Alerts">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+                        <span class="badge-dot"></span>
+                    </div>
+
+                    <button class="btn btn-outline btn-sm" onclick="alert('Signed out of MEDAXIS Admin Portal.')">
+                        Logout
+                    </button>
+                </div>
+            </header>
+
+            <!-- ==========================================
+                 MODULE 1: DASHBOARD
+                 ========================================== -->
+            <section id="view-dashboard" class="module-view active">
+                <!-- 6 Stat Cards -->
+                <div class="stat-cards-grid">
+                    <div class="stat-card">
+                        <div>
+                            <div class="stat-label">Total Registered Patients</div>
+                            <div class="stat-value" id="statTotalPatients">--</div>
+                            <div class="stat-sub">Central Registry</div>
+                        </div>
+                        <div class="stat-icon-wrapper icon-teal">
+                            <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div>
+                            <div class="stat-label">Total Doctors</div>
+                            <div class="stat-value" id="statTotalDoctors">--</div>
+                            <div class="stat-sub">Across 11 Departments</div>
+                        </div>
+                        <div class="stat-icon-wrapper icon-blue">
+                            <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div>
+                            <div class="stat-label">Today's Appointments</div>
+                            <div class="stat-value" id="statTodayApts">--</div>
+                            <div class="stat-sub">Consultation Queue</div>
+                        </div>
+                        <div class="stat-icon-wrapper icon-amber">
+                            <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div>
+                            <div class="stat-label">Pending Appointments</div>
+                            <div class="stat-value" id="statPendingApts">--</div>
+                            <div class="stat-sub">Awaiting Consultation</div>
+                        </div>
+                        <div class="stat-icon-wrapper icon-rose">
+                            <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div>
+                            <div class="stat-label">Available Pharmacy Stock</div>
+                            <div class="stat-value" id="statPharmacyStock">--</div>
+                            <div class="stat-sub">Active Medicines</div>
+                        </div>
+                        <div class="stat-icon-wrapper icon-emerald">
+                            <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div>
+                            <div class="stat-label">Pending Payments</div>
+                            <div class="stat-value" id="statPendingPayments" style="color:var(--status-danger);">₹0.00</div>
+                            <div class="stat-sub">Hospital Receivables</div>
+                        </div>
+                        <div class="stat-icon-wrapper icon-amber">
+                            <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alert Banners (Pharmacy Low Stock & Expiry) -->
+                <div class="alert-row">
+                    <div class="alert-banner">
+                        <div class="alert-header">
+                            <span class="alert-title">⚠ Pharmacy Low Stock Warnings</span>
+                            <span class="badge badge-warning">Needs Restock</span>
+                        </div>
+                        <div class="alert-item-list" id="dashLowStockList">
+                            <div>Loading inventory status...</div>
+                        </div>
+                    </div>
+
+                    <div class="alert-banner danger">
+                        <div class="alert-header">
+                            <span class="alert-title">⛔ Expiry & Expired Medicine Alerts</span>
+                            <span class="badge badge-danger">Action Required</span>
+                        </div>
+                        <div class="alert-item-list" id="dashExpiringList">
+                            <div>Checking expiry timeline...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tables Row -->
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Today's Appointment Schedule</h3>
+                            <button class="btn btn-outline btn-sm" onclick="switchView('view-appointments')">View All</button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Patient</th>
+                                        <th>Doctor</th>
+                                        <th>Room</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dashTodayAptTbody">
+                                    <tr><td colspan="5" style="text-align:center;">Loading...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Recent Patient Registrations</h3>
+                            <button class="btn btn-outline btn-sm" onclick="switchView('view-patient-details')">Directory</button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Patient ID</th>
+                                        <th>Name</th>
+                                        <th>Age / Gender</th>
+                                        <th>Mobile</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dashRecentPatTbody">
+                                    <tr><td colspan="4" style="text-align:center;">Loading...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 MODULE 2: REGISTER NEW PATIENT
+                 ========================================== -->
+            <section id="view-register-patient" class="module-view">
+                <div style="max-width: 900px; margin:0 auto;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">New Patient Admission & Registration</h2>
+                            <span style="font-size:0.75rem; color:#64748B;">Strict Indian Healthcare Standards</span>
+                        </div>
+                        <div class="card-body">
+                            <div id="patientFormAlert" style="display:none; padding:12px 16px; border-radius:6px; margin-bottom:16px;"></div>
+
+                            <form id="patientRegisterForm">
+                                <div class="form-section-title">1. Personal Details</div>
+                                <div class="form-grid-3">
+                                    <div class="form-group">
+                                        <label class="form-label required">Full Name</label>
+                                        <input type="text" id="patName" class="form-control" placeholder="e.g. Ramesh Kumar Verma" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label required">Date of Birth</label>
+                                        <input type="date" id="patDob" class="form-control" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label required">Age (Auto-Calculated)</label>
+                                        <input type="number" id="patAge" class="form-control" placeholder="Auto" readonly style="background:#F1F5F9; font-weight:700;">
+                                    </div>
+                                </div>
+
+                                <div class="form-grid-2" style="margin-top:14px;">
+                                    <div class="form-group">
+                                        <label class="form-label required">Gender</label>
+                                        <select id="patGender" class="form-control" required>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label required">Blood Group</label>
+                                        <select id="patBloodGroup" class="form-control" required>
+                                            <option value="O+">O+</option>
+                                            <option value="O-">O-</option>
+                                            <option value="A+">A+</option>
+                                            <option value="A-">A-</option>
+                                            <option value="B+">B+</option>
+                                            <option value="B-">B-</option>
+                                            <option value="AB+">AB+</option>
+                                            <option value="AB-">AB-</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-section-title">2. Contact & Address Details</div>
+                                <div class="form-grid-2">
+                                    <div class="form-group">
+                                        <label class="form-label required">Mobile Number (10-Digit Indian)</label>
+                                        <div style="display:flex;">
+                                            <span style="background:#E2E8F0; padding:9px 12px; border-radius:6px 0 0 6px; font-size:0.85rem; font-weight:700; color:#334155; border:1px solid #CBD5E1; border-right:none;">+91</span>
+                                            <input type="tel" id="patMobile" class="form-control" style="border-radius:0 6px 6px 0;" placeholder="9820123456" maxlength="10" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Email ID</label>
+                                        <input type="email" id="patEmail" class="form-control" placeholder="patient@example.com">
+                                    </div>
+                                </div>
+
+                                <div class="form-group" style="margin-top:14px;">
+                                    <label class="form-label required">Complete Residential Address</label>
+                                    <textarea id="patAddress" class="form-control" rows="2" placeholder="House/Flat No., Street, Landmark, Area" required></textarea>
+                                </div>
+
+                                <div class="form-grid-3" style="margin-top:14px;">
+                                    <div class="form-group">
+                                        <label class="form-label required">City</label>
+                                        <input type="text" id="patCity" class="form-control" placeholder="e.g. Pune" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label required">State / Union Territory</label>
+                                        <select id="patStateSelect" class="form-control" required></select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label required">PIN Code (6-Digit Indian)</label>
+                                        <input type="text" id="patPincode" class="form-control" placeholder="e.g. 411001" maxlength="6" required>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top:28px; display:flex; justify-content:flex-end; gap:12px;">
+                                    <button type="reset" class="btn btn-outline">Reset Form</button>
+                                    <button type="submit" class="btn btn-primary">Save & Register Patient</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 MODULE 3: PATIENT DETAILS
+                 ========================================== -->
+            <section id="view-patient-details" class="module-view">
+                <div class="card">
+                    <div class="card-header">
+                        <div style="display:flex; gap:12px; align-items:center;">
+                            <input type="text" id="patientSearchInput" oninput="loadPatients()" class="search-input" placeholder="Search by name, ID or mobile..." style="width:280px;">
+                            <select id="patientGenderFilter" onchange="loadPatients()" class="form-control" style="width:140px;">
+                                <option value="">All Genders</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary btn-sm" onclick="switchView('view-register-patient')">+ Register Patient</button>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Patient ID</th>
+                                    <th>Full Name</th>
+                                    <th>Age</th>
+                                    <th>Gender</th>
+                                    <th>Blood Group</th>
+                                    <th>Mobile Number</th>
+                                    <th>Registered Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="patientDirectoryTbody">
+                                <tr><td colspan="8" style="text-align:center;">Loading directory...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 MODULE 4: DOCTOR MANAGEMENT
+                 ========================================== -->
+            <section id="view-doctor-management" class="module-view">
+                <div class="card" style="margin-bottom:20px;">
+                    <div class="card-header">
+                        <div style="display:flex; gap:12px; align-items:center;">
+                            <label style="font-size:0.85rem; font-weight:700; color:#0B192C;">Filter Department:</label>
+                            <select id="docDeptFilter" onchange="loadDoctors()" class="form-control" style="width:240px;">
+                                <option value="">All 11 Departments</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="doctorsRosterGrid" style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:20px;">
+                    <!-- Doctor cards dynamically inserted -->
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 MODULE 5: APPOINTMENT BOOKING
+                 ========================================== -->
+            <section id="view-appointments" class="module-view">
+                <div class="card">
+                    <div class="card-header">
+                        <div style="display:flex; gap:12px; align-items:center;">
+                            <select id="aptStatusFilter" onchange="loadAppointments()" class="form-control" style="width:160px;">
+                                <option value="">All Statuses</option>
+                                <option value="Booked">Booked</option>
+                                <option value="Rescheduled">Rescheduled</option>
+                                <option value="Cancelled">Cancelled</option>
+                                <option value="Completed">Completed</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" onclick="document.getElementById('bookAppointmentModal').classList.add('active');">+ Book Appointment</button>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Appointment #</th>
+                                    <th>Date & Time</th>
+                                    <th>Patient</th>
+                                    <th>Doctor & Dept</th>
+                                    <th>Fee</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="appointmentRegistryTbody">
+                                <tr><td colspan="7" style="text-align:center;">Loading appointments...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 MODULE 6: PHARMACY MANAGEMENT
+                 ========================================== -->
+            <section id="view-pharmacy" class="module-view">
+                <div class="card">
+                    <div class="card-header">
+                        <div style="display:flex; gap:12px; align-items:center;">
+                            <select id="pharmStatusFilter" onchange="loadPharmacy()" class="form-control" style="width:160px;">
+                                <option value="">All Stock Status</option>
+                                <option value="low_stock">Low Stock (≤ Min)</option>
+                                <option value="expired">Expired Stock</option>
+                                <option value="in_stock">In Stock</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Medicine Code</th>
+                                    <th>Medicine Details</th>
+                                    <th>Category</th>
+                                    <th>Available Qty</th>
+                                    <th>Unit Price</th>
+                                    <th>Mfg Date</th>
+                                    <th>Expiry Date</th>
+                                    <th>Stock Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="pharmacyInventoryTbody">
+                                <tr><td colspan="8" style="text-align:center;">Loading pharmacy inventory...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 MODULE 7: BILLING AND PAYMENTS
+                 ========================================== -->
+            <section id="view-billing" class="module-view">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Hospital Billing Ledger (INR ₹)</h3>
+                        <button class="btn btn-primary" onclick="document.getElementById('createBillModal').classList.add('active');">+ Generate Patient Bill</button>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Invoice #</th>
+                                    <th>Date</th>
+                                    <th>Patient</th>
+                                    <th>Total (INR)</th>
+                                    <th>Paid</th>
+                                    <th>Balance</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="billingLedgerTbody">
+                                <tr><td colspan="8" style="text-align:center;">Loading ledger...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         PATIENT 360° DOSSIER MODAL (6 TABS)
+         ========================================== -->
+    <div id="patientDossierModal" class="modal-overlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(15,23,42,0.6); display:none; align-items:center; justify-content:center; z-index:1000;">
+        <div style="background:#FFF; width:95%; max-width:920px; max-height:90vh; border-radius:12px; display:flex; flex-direction:column; overflow:hidden; box-shadow:var(--shadow-lg);">
+            <div style="padding:18px 24px; border-bottom:1px solid #E2E8F0; display:flex; justify-content:space-between; align-items:center; background:#FAFCFE;">
+                <div>
+                    <h3 id="dossierPatName" style="font-size:1.3rem; font-weight:800; color:#0B192C;">Patient Name</h3>
+                    <span id="dossierPatCode" style="font-weight:700; color:#0D9488;">MED-PAT-2026-0001</span> &bull; <span id="dossierPatMeta" style="font-size:0.8rem; color:#64748B;">Details</span>
+                </div>
+                <button type="button" class="btn btn-outline btn-sm" onclick="document.getElementById('patientDossierModal').classList.remove('active');">Close</button>
+            </div>
+
+            <!-- 6 Dossier Tabs Navigation -->
+            <div class="tabs-header">
+                <button class="tab-btn active" onclick="switchDossierTab('tabPersonal')">1. Personal Information</button>
+                <button class="tab-btn" onclick="switchDossierTab('tabAppointments')">2. Appointments</button>
+                <button class="tab-btn" onclick="switchDossierTab('tabLab')">3. Lab Reports</button>
+                <button class="tab-btn" onclick="switchDossierTab('tabPrescription')">4. Prescriptions</button>
+                <button class="tab-btn" onclick="switchDossierTab('tabHistory')">5. Medical History</button>
+                <button class="tab-btn" onclick="switchDossierTab('tabBilling')">6. Billing History</button>
+            </div>
+
+            <!-- Tab Panes -->
+            <div style="flex:1; overflow-y:auto;">
+                <div id="tabPersonal" class="tab-pane active"><div id="tabPersonalContent"></div></div>
+                <div id="tabAppointments" class="tab-pane"><div id="tabAppointmentsContent"></div></div>
+                <div id="tabLab" class="tab-pane"><div id="tabLabContent"></div></div>
+                <div id="tabPrescription" class="tab-pane"><div id="tabPrescriptionContent"></div></div>
+                <div id="tabHistory" class="tab-pane"><div id="tabHistoryContent"></div></div>
+                <div id="tabBilling" class="tab-pane"><div id="tabBillingContent"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         BOOK APPOINTMENT MODAL
+         ========================================== -->
+    <div id="bookAppointmentModal" class="modal-overlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(15,23,42,0.6); display:none; align-items:center; justify-content:center; z-index:1000;">
+        <div style="background:#FFF; width:95%; max-width:600px; border-radius:12px; padding:24px; box-shadow:var(--shadow-lg);">
+            <div style="display:flex; justify-content:space-between; margin-bottom:16px;">
+                <h3 style="font-size:1.1rem; font-weight:800;">Schedule Doctor Appointment</h3>
+                <button onclick="document.getElementById('bookAppointmentModal').classList.remove('active');" class="btn btn-outline btn-sm">&times;</button>
+            </div>
+
+            <div id="bookAlert" style="display:none; padding:10px; border-radius:6px; margin-bottom:14px;"></div>
+
+            <div class="form-group" style="margin-bottom:12px;">
+                <label class="form-label required">Select Patient</label>
+                <select id="bookPatientSelect" class="form-control" required></select>
+            </div>
+
+            <div class="form-group" style="margin-bottom:12px;">
+                <label class="form-label required">Select Doctor</label>
+                <select id="bookDoctorSelect" class="form-control" required></select>
+            </div>
+
+            <div class="form-grid-2" style="margin-bottom:12px;">
+                <div class="form-group">
+                    <label class="form-label required">Date</label>
+                    <input type="date" id="bookAptDate" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label required">Time Slot</label>
+                    <select id="bookAptTime" class="form-control" required>
+                        <option value="09:00">09:00 AM</option>
+                        <option value="09:30">09:30 AM</option>
+                        <option value="10:00">10:00 AM</option>
+                        <option value="10:30">10:30 AM</option>
+                        <option value="11:00">11:00 AM</option>
+                        <option value="11:30">11:30 AM</option>
+                        <option value="14:00">02:00 PM</option>
+                        <option value="14:30">02:30 PM</option>
+                        <option value="15:00">03:00 PM</option>
+                        <option value="15:30">03:30 PM</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom:20px;">
+                <label class="form-label">Notes / Primary Complaint</label>
+                <textarea id="bookAptNotes" class="form-control" rows="2" placeholder="Symptoms or referral reason..."></textarea>
+            </div>
+
+            <div style="display:flex; justify-content:flex-end; gap:12px;">
+                <button class="btn btn-outline" onclick="document.getElementById('bookAppointmentModal').classList.remove('active');">Cancel</button>
+                <button class="btn btn-primary" onclick="submitBooking()">Confirm Booking</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         GENERATE BILL MODAL
+         ========================================== -->
+    <div id="createBillModal" class="modal-overlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(15,23,42,0.6); display:none; align-items:center; justify-content:center; z-index:1000;">
+        <div style="background:#FFF; width:95%; max-width:700px; border-radius:12px; padding:24px; box-shadow:var(--shadow-lg);">
+            <div style="display:flex; justify-content:space-between; margin-bottom:16px;">
+                <h3 style="font-size:1.1rem; font-weight:800;">Generate Hospital Tax Invoice (INR ₹)</h3>
+                <button onclick="document.getElementById('createBillModal').classList.remove('active');" class="btn btn-outline btn-sm">&times;</button>
+            </div>
+
+            <div class="form-group" style="margin-bottom:14px;">
+                <label class="form-label required">Select Patient</label>
+                <select id="billPatientSelect" class="form-control" required></select>
+            </div>
+
+            <div class="form-grid-2" style="margin-bottom:14px;">
+                <div class="form-group">
+                    <label class="form-label">1. Consultation Charges (₹)</label>
+                    <input type="number" step="0.01" id="billConsultationCharges" oninput="calculateBillTotals()" class="form-control" value="600.00">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">2. Laboratory Charges (₹)</label>
+                    <input type="number" step="0.01" id="billLabCharges" oninput="calculateBillTotals()" class="form-control" value="0.00">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">3. Pharmacy Charges (₹)</label>
+                    <input type="number" step="0.01" id="billPharmacyCharges" oninput="calculateBillTotals()" class="form-control" value="0.00">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">4. Other Hospital Charges (₹)</label>
+                    <input type="number" step="0.01" id="billOtherCharges" oninput="calculateBillTotals()" class="form-control" value="50.00">
+                </div>
+            </div>
+
+            <div class="form-grid-2" style="margin-bottom:14px;">
+                <div class="form-group">
+                    <label class="form-label">Hospital Tax / GST Rate (%)</label>
+                    <input type="number" step="0.01" id="billTaxRate" oninput="calculateBillTotals()" class="form-control" value="5.00">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Amount Paid Counter Settlement (₹)</label>
+                    <input type="number" step="0.01" id="billPaidAmount" oninput="calculateBillTotals()" class="form-control" value="0.00">
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom:16px;">
+                <label class="form-label">Payment Method</label>
+                <select id="billPaymentMethod" class="form-control">
+                    <option value="UPI">UPI (Google Pay / PhonePe / Paytm)</option>
+                    <option value="Cash">Cash (Counter)</option>
+                    <option value="Debit Card">Debit Card (POS)</option>
+                    <option value="Credit Card">Credit Card</option>
+                    <option value="Other">Other / Insurance</option>
+                </select>
+            </div>
+
+            <div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:6px; padding:12px 16px; margin-bottom:16px; display:flex; justify-content:space-between; font-size:0.9rem;">
+                <div>Subtotal: <strong id="calcSubtotal">₹650.00</strong></div>
+                <div>GST: <strong id="calcTaxAmount">₹32.50</strong></div>
+                <div>Total: <strong id="calcTotal" style="color:#0D9488; font-size:1.1rem;">₹682.50</strong></div>
+                <div>Due: <strong id="calcBalance" style="color:#DC2626; font-size:1.1rem;">₹682.50</strong></div>
+            </div>
+
+            <div style="display:flex; justify-content:flex-end; gap:12px;">
+                <button class="btn btn-outline" onclick="document.getElementById('createBillModal').classList.remove('active');">Cancel</button>
+                <button class="btn btn-primary" onclick="submitInvoice()">Save & Generate Invoice</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden Printable Receipt Container -->
+    <div id="printableReceiptArea" style="display:none;"></div>
+
+    <script>
+        function switchDossierTab(tabId) {
+            document.querySelectorAll('#patientDossierModal .tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('#patientDossierModal .tab-pane').forEach(p => p.classList.remove('active'));
+            event.target.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+    </script>
+    <script src="js/app.js"></script>
+</body>
+</html>
+

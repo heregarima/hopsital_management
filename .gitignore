@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+*.exe
+*.pdb
+.env
+.env.*
+*.log
